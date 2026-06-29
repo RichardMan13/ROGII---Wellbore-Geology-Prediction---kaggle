@@ -1,0 +1,29 @@
+{
+  "name": "rogii---wellbore-geology-prediction---kaggle",
+  "version": "1.0.0",
+  "description": "Uma arquitetura de pipeline leve, modular, determinística e focada em validação cruzada robusta para competições do Kaggle.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardMan13/ROGII---Wellbore-Geology-Prediction---kaggle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RichardMan13/ROGII---Wellbore-Geology-Prediction---kaggle/issues"
+  },
+  "homepage": "https://github.com/RichardMan13/ROGII---Wellbore-Geology-Prediction---kaggle#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.9.1"
+  }
+}
