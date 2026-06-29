@@ -1,0 +1,34 @@
+[tool.ruff]
+# Versão alvo do Python
+target-version = "py310"
+
+# Onde o Ruff deve procurar arquivos fonte primários
+src = ["src", "notebooks"]
+
+# Limite de caracteres por linha (estilo Black)
+line-length = 88
+
+[tool.ruff.lint]
+# Regras extras ativadas para elevar o nível de qualidade do código
+select = [
+    "F",    # Pyflakes (erros de lógica, variáveis não usadas, etc.)
+    "E",    # pycodestyle (erros de estilo PEP8)
+    "W",    # pycodestyle (avisos de estilo PEP8)
+    "I",    # isort (ordenação automática e agrupamento de imports!)
+    "N",    # pep8-naming (padrão de nomenclatura para classes, funções, variáveis)
+    "UP",   # pyupgrade (sugere melhorias de sintaxe para Python moderno 3.10+)
+    "B",    # flake8-bugbear (previne bugs de design comuns em Python)
+    "A",    # flake8-builtins (impede que você sobrescreva funções nativas como len, list, etc.)
+    "C4",   # flake8-comprehensions (otimiza o uso de list/dict/set comprehensions)
+    "SIM",  # flake8-simplify (propõe simplificações de código redundante)
+    "PTH",  # flake8-use-pathlib (incentiva a substituição do antigo os.path pelo Pathlib)
+    "RUF",  # Regras específicas desenvolvidas pelo próprio ecossistema Ruff
+]
+
+# Regras que você deseja ignorar globalmente
+ignore = []
+
+[tool.ruff.lint.per-file-ignores]
+# Ignorar avisos de linha muito longa (E501), múltiplos comandos na mesma linha (E702)
+# e variáveis indefinidas (F821) em Notebooks, já que o fluxo de execução entre células é dinâmico.
+"notebooks/**/*.ipynb" = ["E501", "E702", "F821"]

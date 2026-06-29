@@ -1,0 +1,48 @@
+# Para criar o ambiente a partir deste arquivo, execute no terminal:
+# conda env create -f environment.yml
+
+name: cookiecutter-kaggle
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - cookiecutter
+  - numpy
+  - pandas
+  - scikit-learn
+  - statsmodels
+  - matplotlib
+  - seaborn
+  - plotly
+  - missingno
+  - ydata-profiling
+  - optuna
+  - joblib
+  - tqdm
+  - python-dotenv
+  - invoke
+  - path.py
+  - nbdime
+  - ipykernel
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.1 # Versao estavel e recomendada para a GPU GTX 1650 (compativel com driver 12.8)
+  # - cpuonly # Use esta linha se for rodar apenas em CPU (removendo pytorch-cuda)
+  - lightgbm
+  - xgboost
+  - catboost
+  - h2o
+  - pyspark
+  - ruff
+  - kaggle
+  - mlflow
+  # Descomente abaixo se for utilizar LLMs e desenvolvimento de Agentes:
+  # - langchain
+  # - langchain-openai
+  # - langgraph
+  # - openai
+  - pip

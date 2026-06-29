@@ -1,0 +1,129 @@
+# ==========================================
+# Kaggle & Data Science Rules
+# ==========================================
+# Ignorar dados nas pastas de dados, mas rastrear a estrutura de diretórios via .gitkeep
+data/**
+!data/**/
+!data/**/*.gitkeep
+submissions/*.csv
+artifacts/
+
+# Arquivos de log e tracking de experimentos (ex: MLflow ou W&B local)
+mlruns/
+wandb/
+*.log
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+.env
+.venv/
+venv/
+
+# ==========================================
+# Python Byte-compiled / optimized / DLL files
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# macOS system files
+# ==========================================
+*.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ==========================================
+# C extensions & Distribution
+# ==========================================
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==========================================
+# Packaging & Compilation (PyInstaller, etc)
+# ==========================================
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ==========================================
+# Unit test / coverage reports
+# ==========================================
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.hypothesis/
+
+# ==========================================
+# Translations & Documentation
+# ==========================================
+*.mo
+*.pot
+docs/_build/
+
+# ==========================================
+# IDEs (IntelliJ, PyCharm, VSCode)
+# ==========================================
+.idea
+*.iml
+*.ipr
+*.iws
+.idea_modules/
+.vscode/
+
+# ==========================================
+# Cookiecutter / PyBuilder
+# ==========================================
+target/
+output/
+python_boilerplate/
+
+# ==========================================
+# Linters & Formatters
+# ==========================================
+.ruff_cache/
+
+# ==========================================
+# Security Keys & Additional Caches
+# ==========================================
+kaggle.json
+access_token
+.scratch/
+.pytest_cache/
+.mypy_cache/
+*.db
+tuning_history.db
