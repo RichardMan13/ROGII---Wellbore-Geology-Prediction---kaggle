@@ -1,0 +1,153 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.11",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "440b61b0782b3e5efea9578f3a33c39f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"analise-exploratoria-de-dados-eda\">An\u00e1lise Explorat\u00f3ria de Dados (EDA)</h1>\n<span class=\"paragraph\">Notebook inicial estruturado para investiga\u00e7\u00e3o de dados, engenharia r\u00e1pida de features e testes de hip\u00f3teses.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "3674eeaf6a0d420bddeabd62e4c5e1fa",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "9e624a2e61acaf271ddd7a770c08fc7a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"carregamento-de-dados\">Carregamento de Dados</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "c05bbf060747a52b6adbf55dd877f3ef",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "N\u00famero de po\u00e7os no Treino: 773\nN\u00famero de po\u00e7os no Teste: 3\n\nExemplo (Po\u00e7o 000d7d20):\n  Horizontal shape: (5278, 13)\n  Typewell shape: (1296, 3)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "PKri",
+      "code_hash": "38df6ff87b1278897993f11914a36a3d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"inspecao-inicial\">Inspe\u00e7\u00e3o Inicial</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "c558c06839f10b86ed53f4dcdefa4a8d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"primeiras-linhas-horizontal-poco-000d7d20\">Primeiras Linhas - Horizontal (Po\u00e7o 000d7d20)</h3></span><marimo-ui-element object-id='Xref-0' random-id='8d360350-f907-dd15-3662-a6abb27ce279'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;MD&#92;&quot;:11467.0,&#92;&quot;X&#92;&quot;:2983525.16,&#92;&quot;Y&#92;&quot;:1069022.09,&#92;&quot;Z&#92;&quot;:-9258.57,&#92;&quot;ANCC&#92;&quot;:-9395.81,&#92;&quot;ASTNU&#92;&quot;:-9569.86,&#92;&quot;ASTNL&#92;&quot;:-9597.64,&#92;&quot;EGFDU&#92;&quot;:-9670.99,&#92;&quot;EGFDL&#92;&quot;:-9705.96,&#92;&quot;BUDA&#92;&quot;:-9846.35,&#92;&quot;TVT&#92;&quot;:11236.02,&#92;&quot;GR&#92;&quot;:115.69258598146372,&#92;&quot;TVT_input&#92;&quot;:11236.02},{&#92;&quot;MD&#92;&quot;:11468.0,&#92;&quot;X&#92;&quot;:2983525.18,&#92;&quot;Y&#92;&quot;:1069022.3,&#92;&quot;Z&#92;&quot;:-9259.55,&#92;&quot;ANCC&#92;&quot;:-9395.75,&#92;&quot;ASTNU&#92;&quot;:-9569.8,&#92;&quot;ASTNL&#92;&quot;:-9597.58,&#92;&quot;EGFDU&#92;&quot;:-9670.93,&#92;&quot;EGFDL&#92;&quot;:-9705.9,&#92;&quot;BUDA&#92;&quot;:-9846.29,&#92;&quot;TVT&#92;&quot;:11237.05,&#92;&quot;GR&#92;&quot;:115.58429338928138,&#92;&quot;TVT_input&#92;&quot;:11237.05},{&#92;&quot;MD&#92;&quot;:11469.0,&#92;&quot;X&#92;&quot;:2983525.2,&#92;&quot;Y&#92;&quot;:1069022.52,&#92;&quot;Z&#92;&quot;:-9260.52,&#92;&quot;ANCC&#92;&quot;:-9395.69,&#92;&quot;ASTNU&#92;&quot;:-9569.74,&#92;&quot;ASTNL&#92;&quot;:-9597.52,&#92;&quot;EGFDU&#92;&quot;:-9670.87,&#92;&quot;EGFDL&#92;&quot;:-9705.84,&#92;&quot;BUDA&#92;&quot;:-9846.23,&#92;&quot;TVT&#92;&quot;:11238.09,&#92;&quot;GR&#92;&quot;:135.44695967205843,&#92;&quot;TVT_input&#92;&quot;:11238.09},{&#92;&quot;MD&#92;&quot;:11470.0,&#92;&quot;X&#92;&quot;:2983525.22,&#92;&quot;Y&#92;&quot;:1069022.73,&#92;&quot;Z&#92;&quot;:-9261.5,&#92;&quot;ANCC&#92;&quot;:-9395.64,&#92;&quot;ASTNU&#92;&quot;:-9569.69,&#92;&quot;ASTNL&#92;&quot;:-9597.47,&#92;&quot;EGFDU&#92;&quot;:-9670.82,&#92;&quot;EGFDL&#92;&quot;:-9705.79,&#92;&quot;BUDA&#92;&quot;:-9846.18,&#92;&quot;TVT&#92;&quot;:11239.12,&#92;&quot;GR&#92;&quot;:140.40134576440036,&#92;&quot;TVT_input&#92;&quot;:11239.12},{&#92;&quot;MD&#92;&quot;:11471.0,&#92;&quot;X&#92;&quot;:2983525.25,&#92;&quot;Y&#92;&quot;:1069022.95,&#92;&quot;Z&#92;&quot;:-9262.47,&#92;&quot;ANCC&#92;&quot;:-9395.58,&#92;&quot;ASTNU&#92;&quot;:-9569.63,&#92;&quot;ASTNL&#92;&quot;:-9597.41,&#92;&quot;EGFDU&#92;&quot;:-9670.76,&#92;&quot;EGFDL&#92;&quot;:-9705.73,&#92;&quot;BUDA&#92;&quot;:-9846.12,&#92;&quot;TVT&#92;&quot;:11240.15,&#92;&quot;GR&#92;&quot;:111.27063846735165,&#92;&quot;TVT_input&#92;&quot;:11240.15}]&quot;' data-total-rows='5' data-total-columns='13' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;MD&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;X&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Y&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Z&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;ANCC&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;ASTNU&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;ASTNL&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;EGFDU&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;EGFDL&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;BUDA&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;TVT&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;GR&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;TVT_input&quot;,[&quot;number&quot;,&quot;float64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"primeiras-linhas-typewell-poco-000d7d20\">Primeiras Linhas - Typewell (Po\u00e7o 000d7d20)</h3></span><marimo-ui-element object-id='Xref-1' random-id='e3b07b8b-6f58-50c1-12bf-6ce4df4c9505'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;TVT&#92;&quot;:11223.95,&#92;&quot;GR&#92;&quot;:126.11,&#92;&quot;Geology&#92;&quot;:NaN},{&#92;&quot;TVT&#92;&quot;:11224.45,&#92;&quot;GR&#92;&quot;:128.22,&#92;&quot;Geology&#92;&quot;:NaN},{&#92;&quot;TVT&#92;&quot;:11224.95,&#92;&quot;GR&#92;&quot;:128.72,&#92;&quot;Geology&#92;&quot;:NaN},{&#92;&quot;TVT&#92;&quot;:11225.45,&#92;&quot;GR&#92;&quot;:128.12,&#92;&quot;Geology&#92;&quot;:NaN},{&#92;&quot;TVT&#92;&quot;:11225.95,&#92;&quot;GR&#92;&quot;:125.29,&#92;&quot;Geology&#92;&quot;:NaN}]&quot;' data-total-rows='5' data-total-columns='3' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;TVT&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;GR&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;Geology&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "ccf4762c0ad24ebce079caee2c5a7804",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "interruption",
+          "evalue": "This cell was interrupted and needs to be re-run",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\AppData\\Local\\Temp\\marimo_24100\\__marimo__cell_SFPL_.py&quot;</span>, line <span class=\"m\">10</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">_ax</span> <span class=\"o\">=</span> <span class=\"n\">sns</span><span class=\"o\">.</span><span class=\"n\">countplot</span><span class=\"p\">(</span><span class=\"n\">data</span><span class=\"o\">=</span><span class=\"n\">_df_targets</span><span class=\"p\">,</span> <span class=\"n\">x</span><span class=\"o\">=</span><span class=\"n\">config</span><span class=\"o\">.</span><span class=\"n\">TARGET_COL</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\seaborn\\categorical.py&quot;</span>, line <span class=\"m\">2943</span>, in <span class=\"n\">countplot</span>\n<span class=\"w\">    </span><span class=\"n\">plotter</span> <span class=\"o\">=</span> <span class=\"n\">_CountPlotter</span><span class=\"p\">(</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\seaborn\\categorical.py&quot;</span>, line <span class=\"m\">1530</span>, in <span class=\"n\">__init__</span>\n<span class=\"w\">    </span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">establish_variables</span><span class=\"p\">(</span><span class=\"n\">x</span><span class=\"p\">,</span> <span class=\"n\">y</span><span class=\"p\">,</span> <span class=\"n\">hue</span><span class=\"p\">,</span> <span class=\"n\">data</span><span class=\"p\">,</span> <span class=\"n\">orient</span><span class=\"p\">,</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\seaborn\\categorical.py&quot;</span>, line <span class=\"m\">594</span>, in <span class=\"n\">establish_variables</span>\n<span class=\"w\">    </span><span class=\"n\">plot_data</span><span class=\"p\">,</span> <span class=\"n\">value_label</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_group_longform</span><span class=\"p\">(</span><span class=\"n\">vals</span><span class=\"p\">,</span> <span class=\"n\">groups</span><span class=\"p\">,</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\seaborn\\categorical.py&quot;</span>, line <span class=\"m\">645</span>, in <span class=\"n\">_group_longform</span>\n<span class=\"w\">    </span><span class=\"n\">g_vals</span> <span class=\"o\">=</span> <span class=\"n\">grouped_vals</span><span class=\"o\">.</span><span class=\"n\">get_group</span><span class=\"p\">(</span><span class=\"n\">g</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\pandas\\core\\groupby\\groupby.py&quot;</span>, line <span class=\"m\">802</span>, in <span class=\"n\">get_group</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">obj</span><span class=\"o\">.</span><span class=\"n\">_take_with_is_copy</span><span class=\"p\">(</span><span class=\"n\">inds</span><span class=\"p\">,</span> <span class=\"n\">axis</span><span class=\"o\">=</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">axis</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\pandas\\core\\series.py&quot;</span>, line <span class=\"m\">971</span>, in <span class=\"n\">_take_with_is_copy</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">take</span><span class=\"p\">(</span><span class=\"n\">indices</span><span class=\"o\">=</span><span class=\"n\">indices</span><span class=\"p\">,</span> <span class=\"n\">axis</span><span class=\"o\">=</span><span class=\"n\">axis</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\pandas\\core\\series.py&quot;</span>, line <span class=\"m\">957</span>, in <span class=\"n\">take</span>\n<span class=\"w\">    </span><span class=\"n\">new_values</span> <span class=\"o\">=</span> <span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">_values</span><span class=\"o\">.</span><span class=\"n\">take</span><span class=\"p\">(</span><span class=\"n\">indices</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\marimo\\_runtime\\handlers.py&quot;</span>, line <span class=\"m\">72</span>, in <span class=\"n\">interrupt_handler</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"n\">MarimoInterrupt</span>\n<span class=\"gr\">KeyboardInterrupt</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "f07393945c3a0341e5e545d45c55782d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"qualidade-de-dados-e-estatistica-descritiva\">Qualidade de Dados e Estat\u00edstica Descritiva</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "4cae7500ec8dbfd18b27d1c69bb20bcc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"qualidade-de-dados-porcentagem-de-valores-ausentes\">Qualidade de Dados (Porcentagem de Valores Ausentes)</h3></span><marimo-ui-element object-id='RGSE-0' random-id='737cc157-7319-16d4-b484-c3173acfadaa'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:&#92;&quot;TVT_input&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:74.30870999193874},{&#92;&quot;&#92;&quot;:&#92;&quot;GR&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:29.613049621434907},{&#92;&quot;&#92;&quot;:&#92;&quot;ANCC&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.8961452244634254},{&#92;&quot;&#92;&quot;:&#92;&quot;EGFDL&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.11914171619449537},{&#92;&quot;&#92;&quot;:&#92;&quot;MD&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.0},{&#92;&quot;&#92;&quot;:&#92;&quot;X&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.0},{&#92;&quot;&#92;&quot;:&#92;&quot;Y&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.0},{&#92;&quot;&#92;&quot;:&#92;&quot;Z&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.0},{&#92;&quot;&#92;&quot;:&#92;&quot;ASTNU&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.0},{&#92;&quot;&#92;&quot;:&#92;&quot;ASTNL&#92;&quot;,&#92;&quot;Valores Nulos (%)&#92;&quot;:0.0}]&quot;' data-total-rows='13' data-total-columns='1' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;Valores Nulos (%)&quot;,[&quot;number&quot;,&quot;float64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"estatistica-descritiva-media-desvio-padrao-min-max\">Estat\u00edstica Descritiva (M\u00e9dia, Desvio Padr\u00e3o, Min, Max)</h3></span><marimo-ui-element object-id='RGSE-1' random-id='32a26bb9-c17c-fbdf-d361-2e5787628a03'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:&#92;&quot;MD&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:14316.862620783915,&#92;&quot;std&#92;&quot;:2206.5238503538317,&#92;&quot;min&#92;&quot;:9335.0,&#92;&quot;25%&#92;&quot;:12547.0,&#92;&quot;50%&#92;&quot;:14199.0,&#92;&quot;75%&#92;&quot;:15928.0,&#92;&quot;max&#92;&quot;:22964.0},{&#92;&quot;&#92;&quot;:&#92;&quot;X&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:2965999.1248441334,&#92;&quot;std&#92;&quot;:47749.98149700457,&#92;&quot;min&#92;&quot;:2855426.45,&#92;&quot;25%&#92;&quot;:2917842.125,&#92;&quot;50%&#92;&quot;:2986283.76,&#92;&quot;75%&#92;&quot;:3006569.49,&#92;&quot;max&#92;&quot;:3039107.26},{&#92;&quot;&#92;&quot;:&#92;&quot;Y&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:1074747.7261244666,&#92;&quot;std&#92;&quot;:35603.540239660106,&#92;&quot;min&#92;&quot;:1007175.5,&#92;&quot;25%&#92;&quot;:1040715.98,&#92;&quot;50%&#92;&quot;:1080802.93,&#92;&quot;75%&#92;&quot;:1105966.98,&#92;&quot;max&#92;&quot;:1141857.53},{&#92;&quot;&#92;&quot;:&#92;&quot;Z&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:-9390.812306618585,&#92;&quot;std&#92;&quot;:634.475915467622,&#92;&quot;min&#92;&quot;:-11027.65,&#92;&quot;25%&#92;&quot;:-9920.91,&#92;&quot;50%&#92;&quot;:-9270.31,&#92;&quot;75%&#92;&quot;:-8918.93,&#92;&quot;max&#92;&quot;:-7174.219999999999},{&#92;&quot;&#92;&quot;:&#92;&quot;ANCC&#92;&quot;,&#92;&quot;count&#92;&quot;:5046621.0,&#92;&quot;mean&#92;&quot;:-9008.723981622548,&#92;&quot;std&#92;&quot;:637.6222794560749,&#92;&quot;min&#92;&quot;:-10647.31,&#92;&quot;25%&#92;&quot;:-9548.06,&#92;&quot;50%&#92;&quot;:-8865.57,&#92;&quot;75%&#92;&quot;:-8511.81,&#92;&quot;max&#92;&quot;:-7301.76},{&#92;&quot;&#92;&quot;:&#92;&quot;ASTNU&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:-9192.691054411061,&#92;&quot;std&#92;&quot;:641.8644429634429,&#92;&quot;min&#92;&quot;:-10852.79,&#92;&quot;25%&#92;&quot;:-9723.75,&#92;&quot;50%&#92;&quot;:-9063.21,&#92;&quot;75%&#92;&quot;:-8691.07,&#92;&quot;max&#92;&quot;:-7509.200000000001},{&#92;&quot;&#92;&quot;:&#92;&quot;ASTNL&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:-9257.051231028294,&#92;&quot;std&#92;&quot;:626.8797076062731,&#92;&quot;min&#92;&quot;:-10865.58,&#92;&quot;25%&#92;&quot;:-9771.82,&#92;&quot;50%&#92;&quot;:-9134.01,&#92;&quot;75%&#92;&quot;:-8765.32,&#92;&quot;max&#92;&quot;:-7614.43},{&#92;&quot;&#92;&quot;:&#92;&quot;EGFDU&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:-9350.495176875473,&#92;&quot;std&#92;&quot;:621.9952827251512,&#92;&quot;min&#92;&quot;:-10887.58,&#92;&quot;25%&#92;&quot;:-9883.505000000001,&#92;&quot;50%&#92;&quot;:-9213.22,&#92;&quot;75%&#92;&quot;:-8860.12,&#92;&quot;max&#92;&quot;:-7704.030000000001},{&#92;&quot;&#92;&quot;:&#92;&quot;EGFDL&#92;&quot;,&#92;&quot;count&#92;&quot;:5086188.0,&#92;&quot;mean&#92;&quot;:-9392.205046797322,&#92;&quot;std&#92;&quot;:622.2202027268752,&#92;&quot;min&#92;&quot;:-10932.35,&#92;&quot;25%&#92;&quot;:-9925.5625,&#92;&quot;50%&#92;&quot;:-9256.61,&#92;&quot;75%&#92;&quot;:-8902.37,&#92;&quot;max&#92;&quot;:-7731.610000000001},{&#92;&quot;&#92;&quot;:&#92;&quot;BUDA&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:-9516.918179340975,&#92;&quot;std&#92;&quot;:636.4026530105631,&#92;&quot;min&#92;&quot;:-11104.73,&#92;&quot;25%&#92;&quot;:-10054.26,&#92;&quot;50%&#92;&quot;:-9377.05,&#92;&quot;75%&#92;&quot;:-9017.11,&#92;&quot;max&#92;&quot;:-7835.57}]&quot;' data-total-rows='13' data-total-columns='8' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='true' data-page-size='10' data-field-types='[[&quot;count&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;mean&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;std&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;min&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;25%&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;50%&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;75%&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;max&quot;,[&quot;number&quot;,&quot;float64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='true' data-show-data-types='true' data-show-page-size-selector='true' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

@@ -4,23 +4,40 @@ from src import config
 
 
 def load_train_data():
-    """Carrega o conjunto de dados de treino."""
-    train_path = config.RAW_DATA_DIR / "train.csv"
-    if not train_path.exists():
+    """Carrega o conjunto de dados de treino (dicionário de poços)."""
+    train_path = config.RAW_DATA_DIR / "train"
+    if not train_path.exists() or not train_path.is_dir():
         raise FileNotFoundError(
-            f"Arquivo de treino não encontrado em {train_path}. Por favor, baixe os dados usando a API do Kaggle."
+            f"Pasta de treino não encontrada em {train_path}. Por favor, rode 'inv download-data'."
         )
-    return pd.read_csv(train_path)
+        
+    wells = {}
+    for h_path in train_path.glob("*__horizontal_well.csv"):
+        well_id = h_path.name.split("__")[0]
+        t_path = train_path / f"{well_id}__typewell.csv"
+        
+        wells[well_id] = {
+            "horizontal": pd.read_csv(h_path),
+            "typewell": pd.read_csv(t_path) if t_path.exists() else None
+        }
+    return wells
 
 
 def load_test_data():
-    """Carrega o conjunto de dados de teste."""
-    test_path = config.RAW_DATA_DIR / "test.csv"
-    if not test_path.exists():
+    """Carrega o conjunto de dados de teste (dicionário de poços)."""
+    test_path = config.RAW_DATA_DIR / "test"
+    if not test_path.exists() or not test_path.is_dir():
         raise FileNotFoundError(
-            f"Arquivo de teste não encontrado em {test_path}. Por favor, baixe os dados usando a API do Kaggle."
+            f"Pasta de teste não encontrada em {test_path}. Por favor, rode 'inv download-data'."
         )
-    return pd.read_csv(test_path)
+        
+    wells = {}
+    for h_path in test_path.glob("*__horizontal_well.csv"):
+        well_id = h_path.name.split("__")[0]
+        wells[well_id] = {
+            "horizontal": pd.read_csv(h_path)
+        }
+    return wells
 
 
 def get_cv_splits(df, mode="classifier"):

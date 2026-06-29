@@ -1,7 +1,7 @@
 # Para criar o ambiente a partir deste arquivo, execute no terminal:
 # conda env create -f environment.yml
 
-name: cookiecutter-kaggle
+name: rogii-wellbore
 channels:
   - pytorch
   - nvidia
@@ -25,8 +25,7 @@ dependencies:
   - python-dotenv
   - invoke
   - path.py
-  - nbdime
-  - ipykernel
+  - marimo
   - pytorch
   - torchvision
   - torchaudio
@@ -38,7 +37,7 @@ dependencies:
   - h2o
   - pyspark
   - ruff
-  - kaggle
+  - kagglehub
   - mlflow
   # Descomente abaixo se for utilizar LLMs e desenvolvimento de Agentes:
   # - langchain

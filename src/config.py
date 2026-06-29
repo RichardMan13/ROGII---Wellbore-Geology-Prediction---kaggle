@@ -37,14 +37,14 @@ SEED = 25844181
 # Configuração de Cross-Validation (Mudar conforme a competição)
 N_SPLITS = 5
 SHUFFLE = True
-STRATIFIED = True  # True para classificação, False para regressão
+STRATIFIED = False  # True para classificação, False para regressão
 
 # Configurações da Competição
-PROBLEM_TYPE = "binary"  # "binary", "multiclass" ou "regression"
-EVAL_METRIC = "auc"      # ex: "auc", "logloss", "rmse", "mae", "accuracy"
+PROBLEM_TYPE = "regression"  # "binary", "multiclass" ou "regression"
+EVAL_METRIC = "rmse"      # ex: "auc", "logloss", "rmse", "mae", "accuracy"
 
 # Configurações de Dados
-TARGET_COL = "target"
+TARGET_COL = "TVT"
 ID_COL = "id"
 
 # Parâmetros dos Modelos

@@ -31,16 +31,16 @@ def clean(c):
         p.unlink()
         pyc_count += 1
 
-    # 2. Limpar checkpoints de Jupyter Notebooks
-    jupyter_count = 0
-    for p in BASE_DIR.rglob(".ipynb_checkpoints"):
+    # 2. Limpar caches do Marimo
+    marimo_count = 0
+    for p in BASE_DIR.rglob("__marimo__"):
         shutil.rmtree(p)
-        jupyter_count += 1
+        marimo_count += 1
 
     print(
         f"Removidos {pycache_count} diretórios __pycache__ e {pyc_count} arquivos .pyc/.pyo."
     )
-    print(f"Removidos {jupyter_count} diretórios de checkpoints do Jupyter.")
+    print(f"Removidos {marimo_count} diretórios de cache do Marimo.")
 
 
 @task
@@ -66,27 +66,24 @@ def check(c):
 @task
 def download_data(c, competition):
     """
-    Baixa os dados da competição via API do Kaggle e descompacta na pasta data/raw/.
+    Baixa os dados da competição via KaggleHub e os salva na pasta data/raw/.
     Exemplo: inv download-data --competition=titanic
     """
+    import kagglehub
+    import shutil
+
     raw_dir = BASE_DIR / "data" / "raw"
+    if raw_dir.exists():
+        print(f"Limpando a pasta {raw_dir.name} antes do download...")
+        shutil.rmtree(raw_dir)
     raw_dir.mkdir(parents=True, exist_ok=True)
 
     print(
-        f"Iniciando download dos dados da competicao '{competition}' via Kaggle API..."
+        f"Iniciando download dos dados da competicao '{competition}' via KaggleHub..."
     )
-    c.run(f"kaggle competitions download -c {competition} -p {raw_dir}")
-
-    zip_file = raw_dir / f"{competition}.zip"
-    if zip_file.exists():
-        print(f"Descompactando {zip_file.name} em {raw_dir}...")
-        with zipfile.ZipFile(zip_file, "r") as zip_ref:
-            zip_ref.extractall(raw_dir)
-        zip_file.unlink()
-        print("Dados baixados e descompactados com sucesso!")
-    else:
-        # Se a API baixou os arquivos CSV ou outros tipos diretamente sem zipar
-        print("Download concluido! Nenhum arquivo ZIP principal precisou ser extraido.")
+    # kagglehub automaticamente faz o download, lida com autenticação e retorna o caminho
+    path = kagglehub.competition_download(competition, output_dir=str(raw_dir))
+    print(f"Dados baixados com sucesso em: {path}")
 
 
 @task(pre=[clean])
@@ -144,19 +141,13 @@ def blend(c, mode="classifier"):
     c.run(f"python -m src.blend --mode {mode}", pty=False)
 
 
-@task
-def submit(c, competition, file="submissions/submission.csv", message="My submission"):
-    """
-    Envia uma submissao para a competicao do Kaggle.
-    Exemplo de uso: inv submit --competition=nome-da-competicao --file=submissions/submission.csv --message="Minha submissao"
-    """
-    file_path = BASE_DIR / file
-    if not file_path.exists():
-        print(f"[ERRO] O arquivo {file_path} não existe!")
-        return
+# A task 'submit' foi removida. O envio da submissão deve ser feito manualmente pelo site do Kaggle.
 
-    print(f"Enviando arquivo {file_path.name} para a competicao '{competition}'...")
-    c.run(
-        f'kaggle competitions submit -c {competition} -f {file_path} -m "{message}"',
-        pty=False,
-    )
+
+@task
+def notebook(c):
+    """
+    Inicia o editor Marimo na pasta notebooks/.
+    """
+    print("Iniciando Marimo...")
+    c.run("marimo edit notebooks/", pty=False)
