@@ -1,0 +1,244 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.11",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "78bfc853726b4e9bb22bcc6b8b851497",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"deep-eda-wellbore-geology-prediction\">\ud83d\udd75\ufe0f\u200d\u2642\ufe0f Deep EDA: Wellbore Geology Prediction</h1>\n<span class=\"paragraph\">Este notebook realiza uma An\u00e1lise Explorat\u00f3ria de Dados Profunda (Deep EDA) focando em anomalias de dados, engenharia de features espaciais e integra\u00e7\u00e3o com <em>typewells</em>, de acordo com o plano estabelecido.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "04356a7407b6ced4a68989f2d3b62ca2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "4149d63ab25bcf199c5611743fa50f8d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "126739a666172d600f5872aa59286796",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"fase-1-auditoria-de-dados-e-qualidade\">\ud83d\udee0\ufe0f Fase 1: Auditoria de Dados e Qualidade</h2>\n<span class=\"paragraph\">Vamos investigar nulos, outliers nas coordenadas e verificar a consist\u00eancia do MD (Measured Depth).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "d6a78c70183d9e591366749f7fc50956",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Valores nulos em GR:</strong> 1507972 (29.61%)</span></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Po\u00e7os com MD n\u00e3o crescente:</strong> 0 po\u00e7os. OK!</span></span><span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Estat\u00edsticas para detec\u00e7\u00e3o de anomalias:</strong></span></span><marimo-ui-element object-id='PKri-0' random-id='8a9db066-0560-258b-1e81-314b4ae4072a'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;&#92;&quot;:&#92;&quot;X&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:2965999.1248441334,&#92;&quot;std&#92;&quot;:47749.98149700457,&#92;&quot;min&#92;&quot;:2855426.45,&#92;&quot;25%&#92;&quot;:2917842.125,&#92;&quot;50%&#92;&quot;:2986283.76,&#92;&quot;75%&#92;&quot;:3006569.49,&#92;&quot;max&#92;&quot;:3039107.26},{&#92;&quot;&#92;&quot;:&#92;&quot;Y&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:1074747.7261244666,&#92;&quot;std&#92;&quot;:35603.540239660106,&#92;&quot;min&#92;&quot;:1007175.5,&#92;&quot;25%&#92;&quot;:1040715.98,&#92;&quot;50%&#92;&quot;:1080802.93,&#92;&quot;75%&#92;&quot;:1105966.98,&#92;&quot;max&#92;&quot;:1141857.53},{&#92;&quot;&#92;&quot;:&#92;&quot;Z&#92;&quot;,&#92;&quot;count&#92;&quot;:5092255.0,&#92;&quot;mean&#92;&quot;:-9390.812306618585,&#92;&quot;std&#92;&quot;:634.475915467622,&#92;&quot;min&#92;&quot;:-11027.65,&#92;&quot;25%&#92;&quot;:-9920.91,&#92;&quot;50%&#92;&quot;:-9270.31,&#92;&quot;75%&#92;&quot;:-8918.93,&#92;&quot;max&#92;&quot;:-7174.219999999999},{&#92;&quot;&#92;&quot;:&#92;&quot;GR&#92;&quot;,&#92;&quot;count&#92;&quot;:3584283.0,&#92;&quot;mean&#92;&quot;:87.75241378924953,&#92;&quot;std&#92;&quot;:23.76833546921526,&#92;&quot;min&#92;&quot;:13.880160918435658,&#92;&quot;25%&#92;&quot;:72.49096202629133,&#92;&quot;50%&#92;&quot;:85.85950488474109,&#92;&quot;75%&#92;&quot;:101.03833742756709,&#92;&quot;max&#92;&quot;:487.0329297261088}]&quot;' data-total-rows='4' data-total-columns='8' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;count&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;mean&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;std&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;min&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;25%&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;50%&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;75%&quot;,[&quot;number&quot;,&quot;float64&quot;]],[&quot;max&quot;,[&quot;number&quot;,&quot;float64&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;&quot;,[&quot;string&quot;,&quot;object&quot;]]]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "521552cb86a2c62b028a3e428f843ac8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"fase-2-distribuicao-do-target-e-diferencas-tvt-vs-tvt_input\">\ud83d\udcca Fase 2: Distribui\u00e7\u00e3o do Target e Diferen\u00e7as (TVT vs TVT_input)</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "c9120f9f7d98ab7d73422c38c9ba380b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "2e1e243e8cc15193821a1f49741dbfdd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"fase-3-engenharia-geoespacial-inclinacao-e-derivadas\">\ud83e\udded Fase 3: Engenharia Geoespacial (Inclina\u00e7\u00e3o e Derivadas)</h2>\n<span class=\"paragraph\">Computando as derivadas de profundidade e posi\u00e7\u00e3o espacial para estimar \u00e2ngulos.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "dd9865709cf08c1a8a998e35f8bbe1f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "910de2df29d1a835de29335c3a647e95",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "C:\\Users\\ricar\\.conda\\envs\\rogii-wellbore\\lib\\site-packages\\seaborn\\matrix.py:260: FutureWarning: Format strings passed to MaskedConstant are ignored, but in future may error or produce different behavior\n  annotation = (\"{:\" + self.fmt + \"}\").format(val)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "29a1526c6e87565e19b30cee6a353426",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"fase-4-integracao-horizontal-vs-typewell-dtw-simplificado\">\ud83e\uddec Fase 4: Integra\u00e7\u00e3o Horizontal vs. Typewell (DTW Simplificado)</h2>\n<span class=\"paragraph\">Dynamic Time Warping (DTW) pode alinhar as assinaturas de GR do po\u00e7o horizontal com o Typewell correspondente.\nAqui vamos visualizar a geologia do typewell e como o GR se comporta nela.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "9b550ad21708d40b2532784949e11495",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "c698ec458a8cbccb7f310512ab09aa94",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"fase-5-baseline-feature-importance-lightgbm\">\ud83d\ude80 Fase 5: Baseline Feature Importance (LightGBM)</h2>\n<span class=\"paragraph\">Treinando um modelo r\u00e1pido num \u00fanico po\u00e7o para ver o SHAP das vari\u00e1veis criadas.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "c89a760cd8c037354c35142edec56ffb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.000687 seconds.\nYou can set `force_col_wise=true` to remove the overhead.\n[LightGBM] [Info] Total Bins 1682\n[LightGBM] [Info] Number of data points in the train set: 619, number of used features: 9\n[LightGBM] [Info] Start training from score 11581.304424\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n[LightGBM] [Warning] No further splits with positive gain, best gain: -inf\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "f8b85ef421c78e9422307a809e2f9d74",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "6069bcc9b4c9e70298a2bf261493cba1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"conclusoes-da-eda-profunda-deep-eda\">\ud83d\udcdd Conclus\u00f5es da EDA Profunda (Deep EDA)</h2>\n<span class=\"paragraph\">Ap\u00f3s a execu\u00e7\u00e3o desta explora\u00e7\u00e3o, destacamos os seguintes <em>insights</em> baseados na an\u00e1lise estat\u00edstica e no modelo de valida\u00e7\u00e3o (LightGBM com SHAP):</span>\n<ol>\n<li><strong>Import\u00e2ncia Extrema da Engenharia Geoespacial:</strong> A nova feature <code>Inclination_Deg</code> (\u00c2ngulo de Inclina\u00e7\u00e3o) constru\u00edda atrav\u00e9s das derivadas (<marimo-tex class=\"arithmatex\">||(\\Delta Z / \\Delta MD||)</marimo-tex>) despontou como a <strong>3\u00aa vari\u00e1vel mais importante</strong> para prever o <code>TVT</code> (Mean Abs SHAP ~11.0).</li>\n<li><strong>O peso da posi\u00e7\u00e3o bruta:</strong> As vari\u00e1veis originais de percurso, como <code>MD</code> (Measured Depth) e <code>X</code> (Easting), possuem o maior peso de decis\u00e3o, indicando uma forte depend\u00eancia espacial na espessura vertical verdadeira.</li>\n<li><strong>Fraqueza do Baseline Atual:</strong> A feature provida <code>TVT_input</code> se provou quase irrelevante frente \u00e0s coordenadas e \u00e0 inclina\u00e7\u00e3o, revelando que o modelo geom\u00e9trico base tem muito erro acumulado.</li>\n<li><strong>Sinal de Raio Gama (GR):</strong> Tanto o <code>GR</code> bruto quanto o com <em>lag</em> (deslocamento) mostraram pouca import\u00e2ncia global neste primeiro modelo. Para utiliz\u00e1-los corretamente, a estrat\u00e9gia de <strong>DTW (Dynamic Time Warping)</strong> na Fase 4 ser\u00e1 vital para mapear o sinal contra o <em>typewell</em> e traduzi-lo em \"dist\u00e2ncia para o topo da camada\" (ao inv\u00e9s de us\u00e1-lo como um valor num\u00e9rico bruto).</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}

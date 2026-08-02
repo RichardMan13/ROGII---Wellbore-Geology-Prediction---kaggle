@@ -14,6 +14,10 @@ The goal of this project is to develop machine learning models that predict the 
 - **Typewell**: A vertical reference log used for geological correlation with the associated horizontal well.
 - **Evaluation Zone**: A specific region within the horizontal well where the `TVT` target is hidden (replaced with `NaN` in `TVT_input`) and must be predicted.
 - **Geological Formations**: Various layers/units of rock, such as ANCC, ASTNU, ASTNL, EGFDU, EGFDL, BUDA.
+- **Self-Correlation DTW**: The process of using Dynamic Time Warping (DTW) to match the Gamma Ray (GR) signature of the evaluation zone against the known past of the *same* horizontal well, rather than relying solely on the Typewell.
+- **Sliding Window Matching**: A feature engineering technique where a fixed-size window of recent GR readings in the evaluation zone is swept across the known past to find the minimum DTW distance, yielding the most probable past `TVT` equivalent.
+- **Multi-Resolution DTW**: Applying Sliding Window Matching simultaneously across different window sizes (e.g., 20ft, 50ft, 100ft) to capture both high-frequency localized geological features and low-frequency global trends.
+- **Geo-Hybrid Features**: Features constructed by explicitly combining the output of DTW matches with spatial coordinates (e.g., calculating the $\Delta Z$ between the current evaluation point and the historical DTW match point) to physically ground the model's perception of geological dip.
 
 ## Datasets
 The data consists of horizontal well trajectories and vertical reference logs (Typewells) organized into `train/` and `test/` directories. Each well is identified by a unique 8-character hash (e.g., `015fe0d2`).
